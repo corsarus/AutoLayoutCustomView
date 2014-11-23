@@ -36,6 +36,7 @@ CGFloat static kCCRTextPadding = 5.0;
 
 - (void)updateConstraints
 {
+    // Pin the UILabel to the four edges of the text box
     [self addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:|-(padding)-[label]-(padding)-|"
                                                                 options:NSLayoutFormatAlignAllCenterY
                                                                  metrics:@{@"padding": @(kCCRTextPadding)}
@@ -51,7 +52,7 @@ CGFloat static kCCRTextPadding = 5.0;
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    // help Auto Layout to figure out the intrinsic content size of a multi-line label
+    // Help Auto Layout figure out the intrinsic content size of a multi-line label
     self.contentLabel.preferredMaxLayoutWidth = self.bounds.size.width - 2 * kCCRTextPadding;
     [super layoutSubviews];
 }

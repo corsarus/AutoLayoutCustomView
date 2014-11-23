@@ -23,7 +23,6 @@
     if (!(self = [super init])) return nil;
     
     self.translatesAutoresizingMaskIntoConstraints = NO;
-    
     self.attributedStrings = strings;
     
     return self;
@@ -33,6 +32,7 @@
 
 - (void)layoutSubviews
 {
+    // This method is called each time the orientation changes, but the subviews are added only once
     if (!self.addedBoxes) {
         CCRBoxedTextView *lastBoxOnLeftSide = [[CCRBoxedTextView alloc] initWithAttributtedString: self.attributedStrings[0]];
         [self addSubview:lastBoxOnLeftSide];
